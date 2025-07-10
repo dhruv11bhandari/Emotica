@@ -1,3 +1,6 @@
 flask
 transformers
 torch
+
+gunicorn           # If deploying to production
+flask-cors         # If using APIs externally
