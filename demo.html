@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emotion Detector (Demo)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212; color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #0984e3;
+      color: white;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1 { margin: 0; }
+    .container {
+      margin-top: 50px;
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #00cec9;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #019391;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: #0984e3;
+      text-decoration: none;
+    }
+    a.back-link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: auto;
+      padding: 15px;
+      font-size: 14px;
+      color: #aaaaaa;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emotion Detector - Demo Mode</h1>
+  </header>
+  <div class="container">
+    <p>Type any sentence below and simulate an emotion analysis using a random AI-like result.</p>
+    <textarea id="userInput" placeholder="I am feeling awesome today!"></textarea>
+    <button onclick="simulateEmotion()">Analyze Emotion</button>
+    <p id="result"></p>
+    <a class="back-link" href="/">← Back to Real App</a>
+  </div>
+  <footer>
+    Made by Dhruv Bhandari
+  </footer>
+  <script>
+    function simulateEmotion() {
+      const emotions = ["Joy 😊", "Anger 😠", "Sadness 😢", "Fear 😨", "Love ❤️", "Surprise 😲"];
+      const emotion = emotions[Math.floor(Math.random() * emotions.length)];
+      const score = (Math.random() * 0.5 + 0.5).toFixed(2);
+      document.getElementById("result").innerText =
+        "Detected Emotion: " + emotion + " | Confidence: " + score;
+    }
+  </script>
+</body>
+</html>
